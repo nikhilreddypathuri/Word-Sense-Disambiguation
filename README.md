@@ -61,14 +61,22 @@ Training data: We used the XML file provided to us with senseid of the ambigous 
 Program Logic:
 
  Step 1: Our program reads the training XMl file and extracts required tags like senseid and head values using regular expressions.
+ 
  Step 2: Next we clean the texts by removing unnecessary tags, lemmatize the data to bring the words to their base form and tokenize the data.
+ 
  Step 3: Next we extract words before and after head value.
+ 
  Step 4: Now we create our Bag of Words seperately for each senseid by selecting n prev words and n future words. Here we got highest accuracy of 90.47% for 1 prev and 1 future.
          we have tried with different number of words like (1,0)-89%,(0,1)-88.8%,(2,1)-86%,(1,2)-85%,(2,2)-83%....
+ 
  Step 5: We calculate frequency distributions for the bag of words we created in previous step. We also calculate combined frequencies of all senseid.
+ 
  Step 6: Now we read the test XML file and again perform the same cleaning and Bag of words steps mentioned earlier in steps 2,3,and 4
+ 
  Step 7: Predict the senseid by calculating the conditional probabilities of the bag of words for the context.
+ 
  Step 8: Print the vectors and probabilities to my-decision-list for the use of debugging
+ 
  Step 9: Print the output to STDOUT
 
  Key-Feature: p(s)*P(f/s) Used this formula to calculate likelihood.
